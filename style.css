@@ -1,0 +1,547 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif,'poppins';
+}
+
+body{
+
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    background: #ebf5fc;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+}
+.card{
+    position: relative;
+    width: 320px;
+    height: 440px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+                inset  -5px -5px 5px rgba(255, 255, 255, 0.5),
+                5px 5px 5px rgba(0, 0, 0, 0.5),
+                -5px -5px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    margin: 30px;
+}
+.container .card .box{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 2px;
+    background: #ebf5fc;
+    box-shadow: 0 10px 20px rgba(0, 0,0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+}
+.container .card:hover .box{
+    transform:translateY(-50px) ;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, #b95ce4,#4f29cd);
+}
+
+.content{
+    padding: 20px;
+    text-align: center;
+}
+.container .card .box .content h2{
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.05);
+    transition: 0.5s;
+    pointer-events: none;
+}
+.container .card:hover .box .content h2{
+    color: rgba(0, 0, 0, 0.05);
+}
+.container .card .box .content h3{
+    font-size: 1.8em;
+    color: #777;
+    z-index: 1;
+    transition: 0.5s;
+}
+.container .card .box .content p{
+    font-size: 1em;
+    font-weight: 300;
+    color: #777;
+    z-index: 1;
+    transition: 0.5s;
+
+}
+.container .card:hover .box  .content h3,
+.container .card:hover .box .content p
+{
+    color: #fff;
+}
+.container .card .box .content a{
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background: #03a9f4;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.container .card:hover .box .content a{
+    background: #ff568f;
+}
+
+/*---------scan--------*/
+.cont{
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+}
+
+
+
+.scan{
+    
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+.scan .qrcode{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    background: url(images/QR_Code01.png);
+    background-size: 400px;
+}
+.scan .qrcode::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(images/QR_Code02.png);
+    background-size: 400px;
+    overflow: hidden;
+    animation: animate 4s ease-in-out infinite;
+}
+@keyframes  animate
+{
+    0%,100%
+    {
+        height: 20px;
+    }
+    50%{
+        height: calc(100% - 20px) ;
+    }
+}
+
+
+.scan .qrcode::after{
+    content: '';
+    position: absolute;
+    inset: 20px;
+    width: calc(100%-40px);
+    height: 2px;
+    background: #35fd5c;
+    filter: drop-shadow(0 0 20px #35fd5c)
+     drop-shadow(0 0 60px #35fd5c);
+    animation:animateLine 4s ease-in-out infinite ;
+}
+@keyframes  animateLine
+{
+    0%{
+        top: 20px;
+    }
+    50%{
+        top: calc(100% - 20px);
+    }
+}
+.border{
+    position: absolute;
+    inset: 0;
+    background: url(images/border.png);
+    background-size: 400px;
+    background-repeat:no-repeat ;
+    animation: animateText 0.5s linear infinite;
+}
+.scan h3{
+    text-transform: uppercase;
+    font-size: 2em;
+    margin-top: 20px;
+    color: #fff;
+    filter: drop-shadow(0 0 20px #fff)
+     drop-shadow(0 0 60px #fff);
+     animation: animateText 0.5s steps(1) infinite;
+}
+@keyframes  animateText 
+{
+    0%,100%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+
+}
+
+
+
+
+
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+section .row {
+    top: -50%;
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    white-space: nowrap;
+    font-size: 64px;
+    transform: rotate(-30deg);
+}
+i{
+    color:rgba(0, 0, 0, 0.5);
+    transition: 1s;
+    padding: 0 5px;
+    user-select: none;
+    cursor: default;
+}
+i:hover {
+    transition: 0s;
+    color: #35fd5c;
+    text-shadow: 0 0 120px #0f0;
+}
+
+section .row div{
+    animation: animates1 80s linear infinite;
+    animation-delay: -80s;
+}
+
+section .row div:nth-child(2){
+    animation: animates2 80s linear infinite;    
+    animation-delay: -40s;
+}
+@keyframes animates1
+{
+    0%
+    {
+        transform: translateX(100%);
+    }
+    100%
+    {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animates2
+{
+    0%
+    {
+        transform: translateX(0%);
+    }
+    100%
+    {
+        transform: translateX(-200%);
+    }
+}
+
+
+
+section .row:nth-child(even) div{
+    animation: animates3 80s linear infinite;
+    animation-delay: -80s;
+}
+
+section .row:nth-child(even) div:nth-child(2){
+    animation: animates4 80s linear infinite;    
+    animation-delay: -40s;
+}
+@keyframes animates3
+{
+    0%
+    {
+        transform: translateX(-100%);
+    }
+    100%
+    {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes animates4
+{
+    0%
+    {
+        transform: translateX(-200%);
+    }
+    100%
+    {
+        transform: translateX(0%);
+    }
+}
+
+
+.seco{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #042104;
+    animation: animateColor 5s linear infinite;
+}
+@keyframes animateColor
+{
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    0%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.container-2{
+    display: flex;
+}
+.circlE{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin:0 -7.5px ;
+}
+.circlE span{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(calc(18deg * var(--i)));
+}
+
+.circlE span::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top:calc(50% - 7.5px);
+    width: 10px;
+    height: 10px;
+    background: #00ff0a;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff0a,
+    0 0 10px #00ff0a,
+    0 0 10px #00ff0a,
+    0 0 10px #00ff0a,
+    0 0 10px #00ff0a,
+    0 0 10px #00ff0a;
+    transform: scale(0.1);
+    animation: animated 3s linear infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+@keyframes animated
+{
+    0%
+    {
+        transform: scale(1);
+    }
+    100%{
+        transform: scale(0.1);
+    }
+}
+.circlE:nth-child(2){
+    transform: rotate(-180deg);
+}
+
+.circlE:nth-child(2)span::before
+{
+    animation-delay: calc(-0.1s * var(--i));
+}
+
+
+
+.col{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #2f363e;
+}
+
+.cont-5{
+    position: relative;
+    background:  #2f363e;
+    border-radius: 20px;
+    border-top-left-radius:255px ;
+    border-top-right-radius:255px ;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.75),
+            10px 10px 70px rgba(0, 0, 0, 0.25) ,
+    inset 5px 5px 10px rgba(0, 0, 0, 0.5) ,
+    inset 5px 5px 20px  rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.clock{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    background:  #2f363e;  
+    border-radius: 50%;  
+    box-shadow: 10px 50px 70px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.5) ,
+    inset 5px 5px 20px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.clock::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #2f363e;
+    border: 3px solid#fff;
+    border-radius: 50%;
+    z-index: 10000;
+}
+.clock span{
+    position: absolute;
+    inset: 20px;
+    color:#fff ;
+    text-align: center;
+    transform: rotate(calc( 30deg * var(--i)));
+}
+.clock span b{
+    font-size: 2em;
+    opacity: 0.25;
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc( -30deg * var(--i)));
+}
+.circle{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(0, 0, 0, 0.25) ;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 10;
+}
+.circle i {
+    position: absolute;
+    width: 6px;
+    height: 50%;
+    background: var(--clr);
+    opacity: 0.75;
+    transform-origin: bottom;
+    transform: scaleY(0.5);
+    z-index: 9;
+}
+.circle:nth-child(1) i{
+    width: 2px;
+}
+
+.circle:nth-child(2) i{
+    width: 6px;
+}
+.circle2{
+    width: 240px;
+    height: 240px;
+    z-index: 9;
+}
+.circle3{
+    width: 180px;
+    height: 180px;
+    z-index: 8;
+}
+.circle::before{
+    content: '';
+    position: absolute;
+    top: -8.5px;
+    width: 15px;
+    height: 15px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+    0 0 60px var(--clr);
+}
+#time{
+    margin-bottom: 40px;
+    display: flex;
+    font-size: 2em;
+    font-weight: 600;
+    border-radius: 40px;
+    border: 2px solid  rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px  rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px  rgba(0, 0, 0, 0.75) ; ;
+
+}
+#time div {
+    position: relative;
+    width: 60px;
+    text-align: center;
+    font-weight: 500;
+    color: var(--clr);
+}
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after
+{
+    content: ':';
+    position: absolute;
+    right: -4px ;
+}
+#time div:last-child{
+    font-size: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+#time div:nth-child(2)::after{
+    animation: animater 1s steps(1) infinite;
+}
+@keyframes animater
+{
+0%{
+    opacity: 1;
+}
+50%{
+    opacity: 0;
+}
+}
+
+
